@@ -1,5 +1,4 @@
 ## OAuth
----
 
 > Open Authentification </br>
 
