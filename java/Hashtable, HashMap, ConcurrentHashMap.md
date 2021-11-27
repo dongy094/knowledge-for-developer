@@ -1,28 +1,32 @@
-## Hashtable vs HashMap vs ConcurrentHashMap
+## HashMap vs Hashtable vs ConcurrentHashMap
 
-> `Hashtable` vs `HashMap` vs `ConcurrentHashMap` </br>
+> `HashMap` vs `Hashtable` , `ConcurrentHashMap` </br>
 
 </br>
 
-#### 🔘OAuth 등장배경
-
-
-
+### `HashMap이란`
 ---
-#### 🔘용어정리
+`HashMap`은 `Map`인터페이스를 구현하는 클래스이다. `Map` 인터페이스를 상속하고 있기에 `Map`의 성질을 그대로 가지고 있다.
+Map은 키와 값으로 구성된 Entry객체를 저장하는 구조를 가지고 있는 자료구조이며 여기서 `key`와 `value`는 모두 객체이다.
+HashMap에 Key가 중복되어 사용된다면, 마지막으로 put된 value값이 key값으로 등록이된다.
+```java
+    hash = new HashMap<String, String>();
 
-**Client** : OAuth 2.0을 사용해 서드파티 로그인 기능을 구현할 자사 또는 개인 애플리케이션 서버다.
+    hash.put("key","testKey1");
+    hash.put("key","testKey2");
+    System.out.print("key 값 : " + hash.get("key"));
+    ==>  testKey2
 
-**Resource Owner** : 서드파티 애플리케이션 (Google, Facebook 등)에 이미 개인정보를 저장(회원가입)하고 있으며 Client가 제공하는 서비스를 이용하려는 사용자, `Resource`는 개인정보라고 생각하면 된다.
+```
 
-**Resource Server** : 사용자의 개인정보를 가지고있는 애플리케이션 (Google, Facebook 등) 서버다. Client는 Token을 이 서버로 넘겨 개인정보를 응답 받을 수 있다.
+</br>
 
-**Authorization Server** : `Client`가 `Resource Server`의 서비스를 사용할 수 있게 인증하고 토큰을 발행해주는 서버(인증 서버)
+#### `HashMap을 사용하는 이유`
+--- 
+HashMap은 이름 그대로 해싱(Hashing)을 사용하기 때문에 많은 양의 데이터를 검색하는 데 있어서 뛰어난 성능을 보인다. 만약 HashMap을 사용하지 않고 List를 사용하여 원소를 검색한다면 O(n)의 시간복잡도 이지만, HashMap을 사용한다면 O(1)의 시간복잡도를 기대할 수 있다.
 
-**Access Token** : `Resource Server`와 `Client`사이에 인증을 완료하여 `Resource Server`로 부터 받은 권한부여의 결과이며, `Client`는 `Access Token`을 이용해서 `Resource Server`에 접근 및 서비스를 요청할 수 있다.
+</br>
 
-**Refresh Token** : 
-
+### `HashMap` 구조
 ---
-#### 🔘OAuth 프로세스
-
+HashMap은 내부에 `key`와 `value`을 저장하는 자료 구조를 가지고 있다. `HashMap`은 `해시 함수`를 통해 `key`와 `value`이 저장되는 위치를 결정하므로, 사용자는 그 위치를 알 수 없고, 삽입되는 순서와 들어 있는 위치 또한 관계가 없다. 
