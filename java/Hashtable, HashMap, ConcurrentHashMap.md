@@ -29,5 +29,8 @@ HashMap은 이름 그대로 해싱(Hashing)을 사용하기 때문에 많은 양
 
 ### `HashMap` 구조
 ---
-|<img src="https://github.com/dongy094/knowledge-for-developer/blob/main/java/img/hashMap.png?raw=true">|
+<img src="https://github.com/dongy094/knowledge-for-developer/blob/main/java/img/hashMap.png?raw=true">
+
+<br>
+
 HashMap은 내부에 `key`와 `value`을 저장하는 자료 구조를 가지고 있다. `HashMap`은 `해시 함수`를 통해 `key`와 `value`이 저장되는 위치를 결정하므로, 사용자는 그 위치를 알 수 없고, 삽입되는 순서와 들어 있는 위치 또한 관계가 없다. 
