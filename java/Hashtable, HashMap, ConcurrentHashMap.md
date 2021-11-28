@@ -1,6 +1,6 @@
 ## HashMap vs Hashtable vs ConcurrentHashMap
 
-> `HashMap` vs `Hashtable` , `ConcurrentHashMap` </br>
+> `HashMap`</br>
 
 </br>
 
@@ -34,3 +34,11 @@ HashMap은 이름 그대로 해싱(Hashing)을 사용하기 때문에 많은 양
 <br>
 
 HashMap은 내부에 `key`와 `value`을 저장하는 자료 구조를 가지고 있다. `HashMap`은 `해시 함수`를 통해 `key`와 `value`이 저장되는 위치를 결정하므로, 사용자는 그 위치를 알 수 없고, 삽입되는 순서와 들어 있는 위치 또한 관계가 없다. 
+
+</br>
+
+### `HashMap`과 `HashTable`의 차이점
+---
+- `Hashtable`은 key에 null을 허용하지 않지만, `HashMap`은 key에 null을 허용한다.
+- `HashMap`은 동기화를 지원하지 않는다. `HashMap`은 단일스레드 환경에서 사용하기 좋은 자료구조이다.
+- `HashTable`은 동기화를 지원하여 `Thread-safe`하다. `HashTable`은 멀티스레드 환경에서 사용하기 좋은 자료구조이지만, HashMap에 비해 느리다.(다른 스레드가 block되고 unblock되는 대기 시간을 기다리기 때문이다.)
