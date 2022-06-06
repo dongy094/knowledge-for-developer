@@ -6,7 +6,7 @@
 
 쉽게생각하면 인덱스를 책의 목차라고 생각하면 된다. 테이블에서 원하는 데이터를 찾기 위해 인덱스를 이용하면 원하는 데이터를 빠르게 찾을 수 있다.
 
-<img src="https://github.com/dongy094/knowledge-for-developer/tree/main/DB/img.index_img.png?raw=true">
+<img src="https://github.com/dongy094/knowledge-for-developer/blob/main/DB/img/index_img.png?raw=true">
 
 
 ### 인덱스(Index) 사용 이유</br>
