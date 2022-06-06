@@ -1,5 +1,5 @@
 ## HA(High Availability:고가용성)
----
+
 ### `HA(High Availability)` 란</br>
 
 HA(High Availability)를 간단히 한국어로 직역을 하자면 “고가용성”이다.</br>
