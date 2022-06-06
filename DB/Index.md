@@ -6,7 +6,8 @@
 
 쉽게생각하면 인덱스를 책의 목차라고 생각하면 된다. 테이블에서 원하는 데이터를 찾기 위해 인덱스를 이용하면 원하는 데이터를 빠르게 찾을 수 있다.
 
-<img src="[https://github.com/dongy094/knowledge-for-developer/blob/main/java/img/hashMap.png](https://github.com/dongy094/knowledge-for-developer/tree/main/DB/img)?raw=true">
+<img src="https://github.com/dongy094/knowledge-for-developer/tree/main/DB/img.index_img.png?raw=true">
+
 
 ### 인덱스(Index) 사용 이유</br>
 데이터들이 정렬되어 있다는 점이다. 이 특징으로 인해 조건 검색이라는 영역에서 굉장한 장점이 된다.
