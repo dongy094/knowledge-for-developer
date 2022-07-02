@@ -10,7 +10,9 @@ JVM의 Heap영역은 처음 설계될 때 다음의 2가지를 전제로 설계�
 
 즉, 객체는 대부분 일회성되며, 메모리에 오랫동안 남아있는 경우는 드물다는 것이다. 그렇기 때문에 객체의 생존 기간에 따라 물리적인 Heap 영역을 나누게 되었고 Young, Old 총 2가지 영역으로 설계되었다.</br>
 
+
 <img src="https://github.com/dongy094/knowledge-for-developer/blob/main/Java/img/GC_%EC%9D%B4%EB%AF%B8%EC%A7%801.png?raw=true">
+
 
 `YOUNG 영역(Young Generation)`
 - 새롭게 생성된 객체가 할당되는 영역
@@ -28,7 +30,9 @@ Old 영역이 Young 영역보다 크게 할당되는 이유는 Young 영역의 �
 
 예외적인 상황으로 Old 영역에 있는 객체가 Young 영역의 객체를 참조하는 경우도 존재할 것이다. 이러한 경우를 대비하여 Old 영역에는 512 bytes의 덩어리(Chunk)로 되어 있는 카드 테이블(Card Table)이 존재한다.
 
+
 <img src="https://github.com/dongy094/knowledge-for-developer/blob/main/Java/img/GC_%EC%9D%B4%EB%AF%B8%EC%A7%802.png?raw=true">
+
 
 카드 테이블에는 Old 영역에 있는 객체가 Young 영역의 객체를 참조할 때 마다 그에 대한 정보가 표시된다. 카드 테이블이 도입된 이유는 간단한다. Young 영역에서 가비지 컬렉션(Minor GC)가 실행될 때 모든 Old 영역에 존재하는 객체를 검사하여 참조되지 않는 Young 영역의 객체를 식별하는 것이 비효율적이기 때문이다. 그렇기 때문에 Young 영역에서 가비지 컬렉션이 진행될 때 카드 테이블만 조회하여 GC의 대상인지 식별할 수 있도록 하고 있다.
 
@@ -68,7 +72,9 @@ Minor GC를 정확히 이해하기 위해서는 Young 영역의 구조에 대해
 객체의 생존 횟수를 카운트하기 위해 Minor GC에서 객체가 살아남은 횟수를 의미하는 age를 Object Header에 기록한다. age의그리고 Minor GC 때 Object Header에 기록된 age를 보고 Promotion 여부를 결정한다.
 또한 Survivor 영역 중 1개는 반드시 사용이 되어야 한다. 만약 두 Survivor 영역에 모두 데이터가 존재하거나, 모두 사용량이 0이라면 현재 시스템이 정상적인 상황이 아님을 파악할 수 있다.
 
+
 <img src="https://github.com/dongy094/knowledge-for-developer/blob/main/Java/img/GC_%EC%9D%B4%EB%AF%B8%EC%A7%803.png?raw=true">
+
 
 ### Major GC의 동작 방식
 Young 영역에서 오래 살아남은 객체는 Old 영역으로 Promotion됨을 확인할 수 있었다. 그리고 Major GC는 객체들이 계속 Promotion되어 Old 영역의 메모리가 부족해지면 발생하게 된다. Young 영역은 일반적으로 Old 영역보다 크키가 작기 때문에 GC가 보통 0.5초에서 1초 사이에 끝난다. 그렇기 때문에 Minor GC는 애플리케이션에 크게 영향을 주지 않는다. 하지만 Old 영역은 Young 영역보다 크며 Young 영역을 참조할 수도 있다. 그렇기 때문에 Major GC는 일반적으로 Minor GC보다 시간이 오래걸리며, 10배 이상의 시간을 사용한다.
